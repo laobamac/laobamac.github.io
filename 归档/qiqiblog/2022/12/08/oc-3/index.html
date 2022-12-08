@@ -1,0 +1,2067 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="Zh-Cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="黑苹果教程" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="黑苹果教程" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="黑苹果教程" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="OpenCore 黑苹果" />
+
+
+<link rel="canonical" href="http://example.com/2022/12/08/oc-3/">
+
+
+
+  <title>
+opencore 初步配置 Four - OpenCore |
+Hackintosh = 黑苹果教程 = 论坛-教程</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">opencore 初步配置 Four
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-12-08 02:22:48">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-12-08T02:22:48+08:00">2022-12-08</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Hackintosh</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicmnywqgpj20zk0m8dwx.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciub8ja1j20zk0m81ky.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/OpenCore/" itemprop="item" rel="index" title="In OpenCore"><span itemprop="name">OpenCore</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="Zh-Cn">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/08/oc-3/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="七七">
+    <meta itemprop="description" content="论坛-教程, 持续补充的OpenCore教程，基于Guihub">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="黑苹果教程">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h2 id="寻找设备地址"><a href="#寻找设备地址" class="headerlink" title="寻找设备地址"></a>寻找设备地址</h2><p>不同的设备的硬件地址是不一样的，可以使用 Hackintool 查看具体的地址信息：</p>
+<p><img data-src="https://image.3001.net/images/20210920/16321210545547.png"> </p>
+<p>或者直接使用 OCC  也是可以识别添加设备地址信息的：</p>
+<p><img data-src="https://image.3001.net/images/20210920/16321212008046.png"> </p>
+<p>添加好的效果如下：</p>
+<p><img data-src="https://image.3001.net/images/20210920/16321209929227.png"> </p>
+<p>当然设备属性这里还是有一些缺失的，这就需要我们来手动来补充了。</p>
+<h2 id="Intel-桌面平台"><a href="#Intel-桌面平台" class="headerlink" title="Intel 桌面平台"></a>Intel 桌面平台</h2><h3 id="Yonah、Conroe-、Penryn、Lynnfield、Clarkdale"><a href="#Yonah、Conroe-、Penryn、Lynnfield、Clarkdale" class="headerlink" title="Yonah、Conroe 、Penryn、Lynnfield、Clarkdale"></a>Yonah、Conroe 、Penryn、Lynnfield、Clarkdale</h3><ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong><ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+</ul>
+<p>这些平台无需特殊设置，只需要添加完善声卡信息即可，当然也可以直接通过启动项添加，前期调试的过程中， 我建议大家是通过启动项添加  <code>alcid=xx</code> 这种形式。</p>
+<h3 id="Sandy-Bridge"><a href="#Sandy-Bridge" class="headerlink" title="Sandy Bridge"></a>Sandy Bridge</h3><p><img data-src="https://image.3001.net/images/20210920/16321220813709.png"> </p>
+<ul>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong></p>
+<ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong></p>
+<ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,snb-platform-id <ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">AAPL,snb-platform-id</th>
+<th align="left">说明解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>10000300</code></strong></td>
+<td align="left">当桌面 iGPU 用于驱动输出显示信号</td>
+</tr>
+<tr>
+<td align="left"><strong><code>00000500</code></strong></td>
+<td align="left">核显仅计算使用而不驱动输出显示信号（有独显的时候建议使用）</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">device-id</th>
+<th align="left">说明解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>26010000</code></strong></td>
+<td align="left">当桌面 iGPU 用于驱动输出显示信号</td>
+</tr>
+<tr>
+<td align="left"><strong><code>02010000</code></strong></td>
+<td align="left">核显仅计算使用而不驱动输出显示信号（有独显的时候建议使用）</td>
+</tr>
+</tbody></table>
+<p>下面是桌面 HD 3000 核显的最终配置的示例：</p>
+<p><img data-src="https://image.3001.net/images/20210920/16321227735696.png">  </p>
+<h3 id="Ivy-Bridge"><a href="#Ivy-Bridge" class="headerlink" title="Ivy Bridge"></a>Ivy Bridge</h3><p><img data-src="https://image.3001.net/images/20210920/16321230409173.png"> </p>
+<ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong><ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong><ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提供兼容度</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">AAPL,ig-platform-id</th>
+<th align="left">说明解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>0A006601</code></strong></td>
+<td align="left">当桌面 iGPU 用于驱动输出显示信号</td>
+</tr>
+<tr>
+<td align="left"><strong><code>07006201</code></strong></td>
+<td align="left">核显仅计算使用而不驱动输出显示信号（有独显的时候建议使用）</td>
+</tr>
+</tbody></table>
+<p>台式机 HD 4000 核显的 AAPL,ig-platform-id 为 <code>0A006601</code></p>
+<ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x16,0x0)</strong><ul>
+<li>Ivy Bridge CPU 与 6 系列主板（即 H61、B65、Q65、P67、H67、Q67、Z68）配合使用需要</li>
+<li>欺骗 IMEI 设备以获得支持</li>
+<li>无论是否使用 SSDT-IMEI，此属性仍然是必需的</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>3A1E0000</code></td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>如果是 7 系列主板（即 B75、Q75、Z75、H77、Q77、Z77），则不需要此项</p>
+</blockquote>
+<h3 id="Haswell、Broadwell"><a href="#Haswell、Broadwell" class="headerlink" title="Haswell、Broadwell"></a>Haswell、Broadwell</h3><p><img data-src="https://image.3001.net/images/20210920/16321233761618.png"> </p>
+<ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong><ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong><ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">AAPL,ig-platform-id</th>
+<th align="left">解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>0300220D</code></strong></td>
+<td align="left">当桌面 iGPU 用于驱动输出显示信号</td>
+</tr>
+<tr>
+<td align="left"><strong><code>04001204</code></strong></td>
+<td align="left">核显仅计算使用而不驱动输出显示信号（有独显的时候建议使用</td>
+</tr>
+<tr>
+<td align="left"><strong><code>07002216</code></strong></td>
+<td align="left">当桌面 iGPU 用于驱动输出显示信号的另一个可选 ID</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th align="left">device-id</th>
+<th align="left">说明解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>12040000</code></td>
+<td align="left">HD 4600 核显的设备 ID</td>
+</tr>
+</tbody></table>
+<p>下面是 HD 4400 核显的最终配置的示例：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AAPL,ig-platform-id</td>
+<td align="left">Data</td>
+<td align="left"><code>0300220D</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-fbmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00009000</code></td>
+</tr>
+<tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>12040000</code></td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321314603160.png">  </p>
+<p>下面是 lris Pro 6200 核显的最终配置示例：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AAPL,ig-platform-id</td>
+<td align="left">Data</td>
+<td align="left"><code>07002216</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-fbmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00009000</code></td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321314941206.png">  </p>
+<h3 id="Skylake"><a href="#Skylake" class="headerlink" title="Skylake"></a>Skylake</h3><p><img data-src="https://image.3001.net/images/20210920/16321241655779.png"> </p>
+<ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong><ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong><ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">AAPL,ig-platform-id</th>
+<th align="left">解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>00001219</code></strong></td>
+<td align="left">当桌面 iGPU 用于驱动显示器时使用</td>
+</tr>
+<tr>
+<td align="left"><strong><code>01001219</code></strong></td>
+<td align="left">核显仅计算使用而不驱动输出显示信号（有独显的时候建议使用）</td>
+</tr>
+</tbody></table>
+<p>HD P530 核显用户需要注意的是，您的 iGPU 核显不受本机支持，因此您需要添加以下属性：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>1B190000</code></td>
+</tr>
+</tbody></table>
+<p>下面是 HD P530  核显的最终配置示例：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AAPL,ig-platform-id</td>
+<td align="left">Data</td>
+<td align="left"><code>00001219</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-fbmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00009000</code></td>
+</tr>
+<tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>1B190000</code></td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321315379476.png">  </p>
+<h3 id="Kaby-Lake"><a href="#Kaby-Lake" class="headerlink" title="Kaby Lake"></a>Kaby Lake</h3><p><img data-src="https://image.3001.net/images/20210920/16321244411668.png"> </p>
+<ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong><ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong><ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>通过 WhateverGreen.kext 进行修补</li>
+<li>是独显输出的话可以不需要这个属性</li>
+<li>OS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">AAPL,ig-platform-id</th>
+<th align="left">解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>00001259</code></strong></td>
+<td align="left">当桌面 iGPU 用于驱动输出显示信号</td>
+</tr>
+<tr>
+<td align="left"><strong><code>03001259</code></strong></td>
+<td align="left">当桌面 iGPU 仅用于计算任务且不驱动显示器时使用</td>
+</tr>
+</tbody></table>
+<p>下面是 HD630  核显的最终配置示例：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AAPL,ig-platform-id</td>
+<td align="left">Data</td>
+<td align="left"><code>00001259</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321315798117.png">  </p>
+<h3 id="Coffee-Lake"><a href="#Coffee-Lake" class="headerlink" title="Coffee Lake"></a>Coffee Lake</h3><p><img data-src="https://image.3001.net/images/20210920/16321321085431.png">  </p>
+<ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong><ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong><ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">AAPL,ig-platform-id</th>
+<th align="left">解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>07009B3E</code></strong></td>
+<td align="left">当桌面 iGPU 用于驱动输出显示信号</td>
+</tr>
+<tr>
+<td align="left"><strong><code>00009B3E</code></strong></td>
+<td align="left">如果<code>07009B3E</code> 不起作用的话，可以考虑使用这个 ID 看看</td>
+</tr>
+<tr>
+<td align="left"><strong><code>0300913E</code></strong></td>
+<td align="left">核显仅计算使用而不驱动输出显示信号（有独显的时候建议使用）</td>
+</tr>
+</tbody></table>
+<p>下面是 HD630  核显的最终配置示例：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AAPL,ig-platform-id</td>
+<td align="left">Data</td>
+<td align="left"><code>07009B3E</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321323354753.png"> </p>
+<h3 id="Comet-Lake"><a href="#Comet-Lake" class="headerlink" title="Comet Lake"></a>Comet Lake</h3><p><img data-src="https://image.3001.net/images/20210920/16321325911237.png">    </p>
+<ul>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong></p>
+<ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong></p>
+<ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">AAPL,ig-platform-id</th>
+<th align="left">解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong><code>07009B3E</code></strong></td>
+<td align="left">当桌面 iGPU 用于驱动输出显示信号</td>
+</tr>
+<tr>
+<td align="left"><strong><code>00009B3E</code></strong></td>
+<td align="left">如果<code>07009B3E</code> 不起作用的话，可以考虑使用这个 ID 看看</td>
+</tr>
+<tr>
+<td align="left"><strong><code>0300C89B</code></strong></td>
+<td align="left">核显仅计算使用而不驱动输出显示信号（有独显的时候建议使用）</td>
+</tr>
+</tbody></table>
+<p>下面是 HD630  核显的最终配置示例：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AAPL,ig-platform-id</td>
+<td align="left">Data</td>
+<td align="left"><code>07009B3E</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321323354753.png"> </p>
+<h2 id="Intel-高端桌面平台"><a href="#Intel-高端桌面平台" class="headerlink" title="Intel 高端桌面平台"></a>Intel 高端桌面平台</h2><h3 id="Nehalem、Westmere、Sandy-and-Ivy-Bridge-E、Haswell-E、Skylake-X-x2F-W-and-Cascade-Lake-X-x2F-W"><a href="#Nehalem、Westmere、Sandy-and-Ivy-Bridge-E、Haswell-E、Skylake-X-x2F-W-and-Cascade-Lake-X-x2F-W" class="headerlink" title="Nehalem、Westmere、Sandy  and Ivy Bridge-E、Haswell-E、Skylake-X&#x2F;W and Cascade Lake-X&#x2F;W"></a>Nehalem、Westmere、Sandy  and Ivy Bridge-E、Haswell-E、Skylake-X&#x2F;W and Cascade Lake-X&#x2F;W</h3><ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong><ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+</ul>
+<p>这些平台无需特殊设置，只需要添加完善声卡信息即可，当然也可以直接通过启动项添加，前期调试的过程中， 我建议大家是通过启动项添加  <code>alcid=xx</code> 这种形式。</p>
+<h2 id="Intel-笔记本平台"><a href="#Intel-笔记本平台" class="headerlink" title="Intel 笔记本平台"></a>Intel 笔记本平台</h2><h3 id="Skylake-X-x2F-W、Cascade-Lake-X-x2F-W"><a href="#Skylake-X-x2F-W、Cascade-Lake-X-x2F-W" class="headerlink" title="Skylake-X&#x2F;W、Cascade Lake-X&#x2F;W"></a>Skylake-X&#x2F;W、Cascade Lake-X&#x2F;W</h3><p><img data-src="https://image.3001.net/images/20210920/16321331517109.png"> </p>
+<ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong><ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong><ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-singlelink<ul>
+<li>帧缓冲区单链接</li>
+<li>一些老的笔记本需要配置这个选项</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Property</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-singlelink</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+</tbody></table>
+<h3 id="Sandy-Bridge-1"><a href="#Sandy-Bridge-1" class="headerlink" title="Sandy Bridge"></a>Sandy Bridge</h3><p><img data-src="https://image.3001.net/images/20210920/16321334313962.png">  </p>
+<ul>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong></p>
+<ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong></p>
+<ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,snb-platform-id <ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>AAPL,snb-platform-id</th>
+<th>Type</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>00000100</code></strong></td>
+<td>Laptop</td>
+<td>笔记本电脑使用</td>
+</tr>
+<tr>
+<td><strong><code>10000300</code></strong></td>
+<td>NUC</td>
+<td>Intel NUC 使用</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x16,0x0)</strong></p>
+<ul>
+<li>使用 Sandy Bridge CPU 和 Ivy Bridge 芯片组常用的配置</li>
+<li>欺骗 IMEI 设备以获得支持</li>
+<li>无论是否使用 SSDT-IMEI，此属性仍然是必需的</li>
+<li>芯片组为 Hx6x 的机型需要配置，可以室友 AIDA64 查看下，比如 Core i3-3110M 的芯片组为 HM67</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>3A1C0000</code></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="Ivy-Bridge-1"><a href="#Ivy-Bridge-1" class="headerlink" title="Ivy Bridge"></a>Ivy Bridge</h3><p><img data-src="https://image.3001.net/images/20210920/16321338062252.png"> </p>
+<ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong><ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong><ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-memorycount<ul>
+<li>匹配  FBMemoryCount</li>
+</ul>
+</li>
+<li>framebuffer-pipecount<ul>
+<li>匹配 PipeCount</li>
+</ul>
+</li>
+<li>framebuffer-portcount<ul>
+<li>匹配 PortCount</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-con1-enable<ul>
+<li>启用外接显示器 1 的修补</li>
+</ul>
+</li>
+<li>framebuffer-con1-alldata<ul>
+<li>显示器 1 的连接信息（接口信息等）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>AAPL,ig-platform-id</th>
+<th>Type</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>03006601</code></strong></td>
+<td>Laptop</td>
+<td>1366*768 或者更低分辨率的显示器推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>04006601</code></strong></td>
+<td>Laptop</td>
+<td>1600*900 或者更高分辨率的显示器推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>09006601</code></strong></td>
+<td>Laptop</td>
+<td>如果上面两个 ID 不行的话，可以试试看，主要是与某些 eDP 显示器配合使用</td>
+</tr>
+<tr>
+<td><strong><code>0B006601</code></strong></td>
+<td>NUC</td>
+<td>Intel NUC 推荐使用</td>
+</tr>
+</tbody></table>
+<p>缓冲区的设置如下：</p>
+<ul>
+<li>framebuffer-patch-enable<ul>
+<li>Number</li>
+<li>1</li>
+</ul>
+</li>
+<li>framebuffer-memorycount<ul>
+<li>Number</li>
+<li>2</li>
+</ul>
+</li>
+<li>framebuffer-pipecount<ul>
+<li>Number</li>
+<li>2</li>
+</ul>
+</li>
+<li>framebuffer-portcount<ul>
+<li>Number</li>
+<li>4</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>Data</li>
+<li><code>00000004</code></li>
+</ul>
+</li>
+<li>framebuffer-con1-enable<ul>
+<li>Number</li>
+<li>1</li>
+</ul>
+</li>
+<li>framebuffer-con1-alldata<ul>
+<li>Data</li>
+<li><code>02050000 00040000 07040000 03040000 00040000 81000000 04060000 00040000 81000000</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="Haswell"><a href="#Haswell" class="headerlink" title="Haswell"></a>Haswell</h3><p><img data-src="https://image.3001.net/images/20210920/16321348477943.png"> </p>
+<ul>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong></p>
+<ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong></p>
+<ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id</li>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>AAPL,ig-platform-id</th>
+<th>Type</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>0500260A</code></strong></td>
+<td>Laptop</td>
+<td>HD 5000、HD 5100 和 HD 5200 核显推荐的 ID 值</td>
+</tr>
+<tr>
+<td><strong><code>0600260A</code></strong></td>
+<td>Laptop</td>
+<td>HD 4200、HD 4400 和 HD 4600 核显推荐的 ID 值，需要配合 Device-id</td>
+</tr>
+<tr>
+<td><strong><code>0300220D</code></strong></td>
+<td>NUC</td>
+<td>推荐所有的 Hasewell 架构的 NUC 使用，核显推荐的 ID 值。需要配合 Device-id</td>
+</tr>
+</tbody></table>
+<p>缓冲区的设置如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-cursormem</td>
+<td align="left">Data</td>
+<td align="left"><code>00009000</code></td>
+</tr>
+</tbody></table>
+<p>针对 HD 4200, HD 4400 and HD 4600 核显配套使用的 Device-id 值：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>12040000</code></td>
+</tr>
+</tbody></table>
+<h3 id="Broadwell"><a href="#Broadwell" class="headerlink" title="Broadwell"></a>Broadwell</h3><p><img data-src="https://image.3001.net/images/20210920/16321351955596.png">  </p>
+<ul>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong></p>
+<ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong></p>
+<ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id</li>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem</li>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>AAPL,ig-platform-id</th>
+<th>Type</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>06002616</code></strong></td>
+<td>Laptop</td>
+<td>推荐大多数的笔记本使用</td>
+</tr>
+<tr>
+<td><strong><code>02001616</code></strong></td>
+<td>NUC</td>
+<td>推荐 Broadwell 架构的 NUC 使用</td>
+</tr>
+</tbody></table>
+<p>如果你的显卡是 HD 5600 的话，一般还需要伪造一下 device-id 值：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">data</td>
+<td align="left">26160000</td>
+</tr>
+</tbody></table>
+<p>缓冲区的设置如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-fbmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00009000</code></td>
+</tr>
+</tbody></table>
+<h3 id="Skylake-1"><a href="#Skylake-1" class="headerlink" title="Skylake"></a>Skylake</h3><p><img data-src="https://image.3001.net/images/20210920/16321354577140.png">  </p>
+<ul>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong></p>
+<ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong></p>
+<ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个） </li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>AAPL,ig-platform-id</th>
+<th>Type</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>00001619</code></strong></td>
+<td>Laptop</td>
+<td>HD 515, HD 520, HD 530, HD 540, HD 550 and P530 核显推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>00001E19</code></strong></td>
+<td>Laptop</td>
+<td>如果你上面的 ID 不行的话，可以尝试这个</td>
+</tr>
+<tr>
+<td><strong><code>00001B19</code></strong></td>
+<td>Laptop</td>
+<td>HD 510 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>00001E19</code></strong></td>
+<td>NUC</td>
+<td>HD 515 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>02001619</code></strong></td>
+<td>NUC</td>
+<td>HD 520&#x2F;530 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>02002619</code></strong></td>
+<td>NUC</td>
+<td>HD 540&#x2F;550 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>05003B19</code></strong></td>
+<td>NUC</td>
+<td>HD 580 推荐使用</td>
+</tr>
+</tbody></table>
+<p> 如果你的核显为 HD 510 的话呢，一般还需要伪造一下 device-id 值：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>02190000</code></td>
+</tr>
+</tbody></table>
+<p> 如果你的核显为 HD 550、P530  的话呢，一般还需要伪造一下 device-id 值：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>16190000</code></td>
+</tr>
+</tbody></table>
+<p>缓冲区的设置如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-fbmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00009000</code></td>
+</tr>
+</tbody></table>
+<h3 id="Kaby-Lake-1"><a href="#Kaby-Lake-1" class="headerlink" title="Kaby Lake"></a>Kaby Lake</h3><p><img data-src="https://image.3001.net/images/20210920/16321357351587.png"> </p>
+<ul>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong></p>
+<ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong></p>
+<ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个）</li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>过 WhateverGreen.kext 进行修补</li>
+<li>果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>AAPL,ig-platform-id</th>
+<th>Type</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>00001B59</code></strong></td>
+<td>Laptop</td>
+<td>HD 615, HD 620, HD 630, HD 640 and HD 650 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>00001659</code></strong></td>
+<td>Laptop</td>
+<td>如果 <code>00001B59</code> 无法加速的话，可以尝试一下这个值</td>
+</tr>
+<tr>
+<td><strong><code>0000C087</code></strong></td>
+<td>Laptop</td>
+<td>推荐用于 Amber Lake 的 UHD 617 和 Kaby Lake-R 的 UHD 62</td>
+</tr>
+<tr>
+<td><strong><code>00001E59</code></strong></td>
+<td>NUC</td>
+<td>HD 615 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>00001B59</code></strong></td>
+<td>NUC</td>
+<td>HD 630推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>02002659</code></strong></td>
+<td>NUC</td>
+<td>HD 640&#x2F;650 推荐使用</td>
+</tr>
+</tbody></table>
+<p> 如果你的核显为 HD 620 的话呢，一般还需要伪造一下 device-id 值：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>16590000</code></td>
+</tr>
+</tbody></table>
+<p>所有的 HD 6XX 系列（UHD 没问题），输出会存在一些小问题，可能会导致锁定或者内核崩溃，下面的一些缓冲帧补丁可以考虑一下：</p>
+<ul>
+<li>framebuffer-con1-enable<ul>
+<li>Data</li>
+<li><code>01000000</code></li>
+</ul>
+</li>
+<li>framebuffer-con1-alldata<ul>
+<li>Data</li>
+<li><code>01050A00 00080000 87010000 02040A00 00080000 87010000 FF000000 01000000 20000000</code></li>
+</ul>
+</li>
+</ul>
+<p>其他的一些缓冲帧设置：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-fbmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00009000</code></td>
+</tr>
+</tbody></table>
+<h3 id="Coffee-Lake、Whiskey-Lake"><a href="#Coffee-Lake、Whiskey-Lake" class="headerlink" title="Coffee Lake、Whiskey Lake"></a>Coffee Lake、Whiskey Lake</h3><p><img data-src="https://image.3001.net/images/20210920/16321428689452.png"> </p>
+<ul>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong></p>
+<ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong></p>
+<ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个） </li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>AAPL,ig-platform-id</th>
+<th>Type</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>0900A53E</code></strong></td>
+<td>Laptop</td>
+<td>UHD 630 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>00009B3E</code></strong></td>
+<td>Laptop</td>
+<td>UHD 620 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>07009B3E</code></strong></td>
+<td>NUC</td>
+<td>UHD 620&#x2F;630 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>0000A53E</code></strong></td>
+<td>NUC</td>
+<td>UHD 655 推荐使用</td>
+</tr>
+</tbody></table>
+<p>UHD 630 可以尝试使用以下 device-id 提高稳定性：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>9B3E0000</code></td>
+</tr>
+</tbody></table>
+<p>Coffee Lake CPU  UHD 620 可以尝试使用以下 device-id 提高稳定性：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>9B3E0000</code></td>
+</tr>
+</tbody></table>
+<p>其他缓冲区设置的参考设置如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-fbmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00009000</code></td>
+</tr>
+</tbody></table>
+<h3 id="Coffee-Lake-Plus-and-Comet-Lake"><a href="#Coffee-Lake-Plus-and-Comet-Lake" class="headerlink" title="Coffee Lake Plus and Comet Lake"></a>Coffee Lake Plus and Comet Lake</h3><p><img data-src="https://image.3001.net/images/20210920/16321432884424.png">  </p>
+<ul>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong></p>
+<ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+<li><p><strong>PciRoot(0x0)&#x2F;Pci(0x2,0x0)</strong></p>
+<ul>
+<li>基本上所有 Intel 设备的核显都是这个路径（白苹果也是这个） </li>
+<li>配置 iGPU 核显</li>
+<li>AAPL,ig-platform-id<ul>
+<li>macOS 用来确定 iGPU 驱动程序如何与我们的系统交互的</li>
+</ul>
+</li>
+<li>device-id<ul>
+<li>解决一些驱动异常问题，提高兼容度</li>
+</ul>
+</li>
+<li>framebuffer-patch-enable<ul>
+<li>启用通过 WhateverGreen.kext 进行修补</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 也不需要</li>
+</ul>
+</li>
+<li>framebuffer-stolenmem<ul>
+<li>设置核显最小被盗内存</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+<li>framebuffer-fbmem<ul>
+<li>设置缓冲帧内存大小</li>
+<li>如果是独显输出的话可以不需要这个属性</li>
+<li>BIOS 可以设置 <code>DVMT Pre-Allocated: 64MB</code> 的话也不需要</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>AAPL,ig-platform-id</th>
+<th>Type</th>
+<th>解释说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong><code>0900A53E</code></strong></td>
+<td>Laptop</td>
+<td>UHD 630 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>00009B3E</code></strong></td>
+<td>Laptop</td>
+<td>UHD 620 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>07009B3E</code></strong></td>
+<td>NUC</td>
+<td>UHD 620&#x2F;630 推荐使用</td>
+</tr>
+<tr>
+<td><strong><code>0000A53E</code></strong></td>
+<td>NUC</td>
+<td>UHD 655 推荐使用</td>
+</tr>
+</tbody></table>
+<p>UHD 630 可以尝试使用以下 device-id 提高稳定性：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>9B3E0000</code></td>
+</tr>
+</tbody></table>
+<p>Comet Lake CPU  UHD 620 可以尝试使用以下 device-id 提高稳定性：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">device-id</td>
+<td align="left">Data</td>
+<td align="left"><code>9B3E0000</code></td>
+</tr>
+</tbody></table>
+<p>其他缓冲区设置的参考设置如下：</p>
+<table>
+<thead>
+<tr>
+<th align="left">Key</th>
+<th align="left">Type</th>
+<th align="left">Value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">framebuffer-patch-enable</td>
+<td align="left">Data</td>
+<td align="left"><code>01000000</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-stolenmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00003001</code></td>
+</tr>
+<tr>
+<td align="left">framebuffer-fbmem</td>
+<td align="left">Data</td>
+<td align="left"><code>00009000</code></td>
+</tr>
+</tbody></table>
+<h2 id="AMD-桌面平台"><a href="#AMD-桌面平台" class="headerlink" title="AMD 桌面平台"></a>AMD 桌面平台</h2><p>因为 AMD CPU 没有核显的原因，所以这些平台无需特殊设置，只需要添加完善声卡信息即可，当然也可以直接通过启动项添加，前期调试的过程中， 我建议大家是通过启动项添加  <code>alcid=xx</code> 这种形式：</p>
+<ul>
+<li><strong>PciRoot(0x0)&#x2F;Pci(0x1b,0x0)</strong><ul>
+<li>这个设备路径以实际为准，可能有误差，可使用 Hackintool 获取具体的设备路径</li>
+<li>layout-id</li>
+<li>AppleALC 音频注入，完整的 ALC ID 可以参考：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FjaWRhbnRoZXJhL0FwcGxlQUxDL3dpa2kvU3VwcG9ydGVkLWNvZGVjcw==">AppleALC 支持设备列表</span></li>
+<li>我建议大家是直接通过启动项添加  <code>alcid=xx</code> 这种形式，简单方便。</li>
+</ul>
+</li>
+</ul>
+
+      <div class="tags">
+          <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E7%AB%A0/" rel="tag"><i class="ic i-tag"></i> 配置文章</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-08 03:34:40" itemprop="dateModified" datetime="2022-12-08T03:34:40+08:00">2022-12-08</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="七七 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="七七 Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="七七 PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>七七 <i class="ic i-at"><em>@</em></i>黑苹果教程
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2022/12/08/oc-3/" title="opencore 初步配置 Four">http://example.com/2022/12/08/oc-3/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/12/08/opencore/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipesx5fdwj20zk0m81kx.jpg" title="opencore 初步配置 One">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> OpenCore</span>
+  <h3>opencore 初步配置 One</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%BB%E6%89%BE%E8%AE%BE%E5%A4%87%E5%9C%B0%E5%9D%80"><span class="toc-number">1.</span> <span class="toc-text">寻找设备地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intel-%E6%A1%8C%E9%9D%A2%E5%B9%B3%E5%8F%B0"><span class="toc-number">2.</span> <span class="toc-text">Intel 桌面平台</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Yonah%E3%80%81Conroe-%E3%80%81Penryn%E3%80%81Lynnfield%E3%80%81Clarkdale"><span class="toc-number">2.1.</span> <span class="toc-text">Yonah、Conroe 、Penryn、Lynnfield、Clarkdale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sandy-Bridge"><span class="toc-number">2.2.</span> <span class="toc-text">Sandy Bridge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ivy-Bridge"><span class="toc-number">2.3.</span> <span class="toc-text">Ivy Bridge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Haswell%E3%80%81Broadwell"><span class="toc-number">2.4.</span> <span class="toc-text">Haswell、Broadwell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Skylake"><span class="toc-number">2.5.</span> <span class="toc-text">Skylake</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kaby-Lake"><span class="toc-number">2.6.</span> <span class="toc-text">Kaby Lake</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Coffee-Lake"><span class="toc-number">2.7.</span> <span class="toc-text">Coffee Lake</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Comet-Lake"><span class="toc-number">2.8.</span> <span class="toc-text">Comet Lake</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intel-%E9%AB%98%E7%AB%AF%E6%A1%8C%E9%9D%A2%E5%B9%B3%E5%8F%B0"><span class="toc-number">3.</span> <span class="toc-text">Intel 高端桌面平台</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Nehalem%E3%80%81Westmere%E3%80%81Sandy-and-Ivy-Bridge-E%E3%80%81Haswell-E%E3%80%81Skylake-X-x2F-W-and-Cascade-Lake-X-x2F-W"><span class="toc-number">3.1.</span> <span class="toc-text">Nehalem、Westmere、Sandy  and Ivy Bridge-E、Haswell-E、Skylake-X&#x2F;W and Cascade Lake-X&#x2F;W</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intel-%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%B9%B3%E5%8F%B0"><span class="toc-number">4.</span> <span class="toc-text">Intel 笔记本平台</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Skylake-X-x2F-W%E3%80%81Cascade-Lake-X-x2F-W"><span class="toc-number">4.1.</span> <span class="toc-text">Skylake-X&#x2F;W、Cascade Lake-X&#x2F;W</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sandy-Bridge-1"><span class="toc-number">4.2.</span> <span class="toc-text">Sandy Bridge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ivy-Bridge-1"><span class="toc-number">4.3.</span> <span class="toc-text">Ivy Bridge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Haswell"><span class="toc-number">4.4.</span> <span class="toc-text">Haswell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Broadwell"><span class="toc-number">4.5.</span> <span class="toc-text">Broadwell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Skylake-1"><span class="toc-number">4.6.</span> <span class="toc-text">Skylake</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kaby-Lake-1"><span class="toc-number">4.7.</span> <span class="toc-text">Kaby Lake</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Coffee-Lake%E3%80%81Whiskey-Lake"><span class="toc-number">4.8.</span> <span class="toc-text">Coffee Lake、Whiskey Lake</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Coffee-Lake-Plus-and-Comet-Lake"><span class="toc-number">4.9.</span> <span class="toc-text">Coffee Lake Plus and Comet Lake</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AMD-%E6%A1%8C%E9%9D%A2%E5%B9%B3%E5%8F%B0"><span class="toc-number">5.</span> <span class="toc-text">AMD 桌面平台</span></a></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2022/12/08/oc-1/" rel="bookmark" title="opencore 初步配置 Two">opencore 初步配置 Two</a></li><li><a href="/2022/12/08/oc-2/" rel="bookmark" title="opencore 初步配置 Three">opencore 初步配置 Three</a></li><li><a href="/2022/12/08/opencore/" rel="bookmark" title="opencore 初步配置 One">opencore 初步配置 One</a></li><li class="active"><a href="/2022/12/08/oc-3/" rel="bookmark" title="opencore 初步配置 Four">opencore 初步配置 Four</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="七七"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">七七</p>
+  <div class="description" itemprop="description">持续补充的OpenCore教程，基于Guihub</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">5</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">1</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">1</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OpenCore/" title="In OpenCore">OpenCore</a>
+</div>
+
+    <span><a href="/2022/12/08/oc-2/" title="opencore 初步配置 Three">opencore 初步配置 Three</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OpenCore/" title="In OpenCore">OpenCore</a>
+</div>
+
+    <span><a href="/2022/12/08/oc-3/" title="opencore 初步配置 Four">opencore 初步配置 Four</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/12/08/ventura-HD4600%E9%A9%B1%E5%8A%A8%E8%A1%A5%E4%B8%81/" title="ventura-HD4600驱动补丁">ventura-HD4600驱动补丁</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OpenCore/" title="In OpenCore">OpenCore</a>
+</div>
+
+    <span><a href="/2022/12/08/oc-1/" title="opencore 初步配置 Two">opencore 初步配置 Two</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OpenCore/" title="In OpenCore">OpenCore</a>
+</div>
+
+    <span><a href="/2022/12/08/opencore/" title="opencore 初步配置 One">opencore 初步配置 One</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">七七 @ Hackintosh</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/12/08/oc-3/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>

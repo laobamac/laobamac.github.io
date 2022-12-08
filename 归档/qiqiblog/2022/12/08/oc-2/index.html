@@ -1,0 +1,832 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="Zh-Cn">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="黑苹果教程" href="http://example.com/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="黑苹果教程" href="http://example.com/atom.xml" />
+<link rel="alternate" type="application/json" title="黑苹果教程" href="http://example.com/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+  <meta name="keywords" content="OpenCore 黑苹果" />
+
+
+<link rel="canonical" href="http://example.com/2022/12/08/oc-2/">
+
+
+
+  <title>
+opencore 初步配置 Three - OpenCore |
+Hackintosh = 黑苹果教程 = 论坛-教程</title>
+<meta name="generator" content="Hexo 6.3.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">opencore 初步配置 Three
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="Created: 2022-12-08 02:22:48">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">Posted on</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-12-08T02:22:48+08:00">2022-12-08</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="Toggle navigation bar">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">Hackintosh</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giph4lm9i7j20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipewkhf1zj20zk0m81kx.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclfw2t96j20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclhnx9glj20zk0m8npd.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipet8c1a2j20zk0m8kct.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">Home</a></span><i class="ic i-angle-right"></i>
+<span  class="current" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem"><a href="/categories/OpenCore/" itemprop="item" rel="index" title="In OpenCore"><span itemprop="name">OpenCore</span></a>
+<meta itemprop="position" content="1" /></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="Zh-Cn">
+  <link itemprop="mainEntityOfPage" href="http://example.com/2022/12/08/oc-2/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="七七">
+    <meta itemprop="description" content="论坛-教程, 持续补充的OpenCore教程，基于Guihub">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="黑苹果教程">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <ul>
+<li><strong>AllowRelocationBlock</strong><ul>
+<li>允许通过重新定位块引导 macOS</li>
+<li>此怪癖需要启用 ProvideCustomSlide，通常还需要启用 AvoidRuntimeDefrag 才能正常工作</li>
+<li>虽然在使用较低内存的平台上运行旧 macOS 版本需要这种怪癖</li>
+<li>但它与某些硬件和 Mac OS 11 不兼容，在这种情况下，应考虑使用 EnableSafeModeSlide</li>
+</ul>
+</li>
+<li><strong>AvoidRuntimeDefrag</strong><ul>
+<li>防止 boot.efi 运行时内存碎片整理</li>
+<li>开启后会修复 UEFI 的运行服务, 例如日期、时间、NVRAM、电源控制</li>
+<li>除了苹果和 VMware 之外，大多数类型的固件都需要这种怪癖</li>
+</ul>
+</li>
+<li><strong>DevirtualiseMmio</strong><ul>
+<li>从某些 MMIO 区域删除运行时属性</li>
+<li>删除已知内存区域的运行时位来减少内存映射中被盗的内存占用</li>
+<li>一般情况下，采用 slide&#x3D;1 的方式进行连续性内存注入，故一般不勾选，除非你的机器用了 KASLR 方式。</li>
+</ul>
+</li>
+<li><strong>DisableSingleUser</strong><ul>
+<li>禁用单用户模式</li>
+<li>开启后会禁止 <code>Cmd + S</code> 和 <code>-s</code> 的使用，使设备更加接近于 T2 白苹果</li>
+</ul>
+</li>
+<li><strong>DisableVariableWrite</strong><ul>
+<li>防止 macOS NVRAM 写入访问</li>
+<li>开启后会禁止 NVRAM 写入, 在 Z390&#x2F;HM370 等没有原生 macOS 支持 NVRAM 的主板上需要开启</li>
+</ul>
+</li>
+<li><strong>DiscardHibernateMap</strong><ul>
+<li>开启后会重用原始休眠内存映射，仅某些旧硬件需要</li>
+</ul>
+</li>
+<li><strong>EnableSafeModeSlide</strong><ul>
+<li>开启后会允许在安全模式下使用 Slide 值</li>
+<li>安全模式下（-x）是否用连续性的内存注入方式</li>
+</ul>
+</li>
+<li><strong>EnableWriteUnprotector</strong><ul>
+<li>允许对 UEFI 运行时服务代码进行写访问</li>
+<li>开启后会在执行期间删除 CR0 寄存器中的写入保护</li>
+</ul>
+</li>
+<li><strong>ForceExitBootServices</strong><ul>
+<li>失败时使用新内存映射重试 ExitBootServices</li>
+<li>开启后会确保 ExitBootServices 即使在 MemoryMap 发生更改时也能调用成功</li>
+<li>一般很老很旧的主板可能需要使用，新主板一般不需要使用</li>
+</ul>
+</li>
+<li><strong>ProtectMemoryRegions</strong><ul>
+<li>保护内存区域不被错误访问</li>
+<li>确保 CSM 内存区域标记为 ACPI NVS，以防止 boot.efi 或 XNU 重新定位或使用它们</li>
+<li>AvoidRuntimeDefrag 解决了类似的问题。默认不勾选</li>
+<li>一些老旧的主板可能需要勾选</li>
+</ul>
+</li>
+<li><strong>ProtectSecureBoot</strong><ul>
+<li>保护 UEFI 安全引导变量不被写入</li>
+<li>避免操作系统对 UEFI 安全启动变量 (<code>db</code>, <code>dbx</code>, <code>PX</code>, <code>KEK</code>) 进行写入</li>
+<li>这个选项主要用于避免 Insyde 主板和 MacPro5,1 的 NVRAM 问题</li>
+</ul>
+</li>
+<li><strong>ProtectUefiServices</strong><ul>
+<li>保护 UEFI 服务不被固件覆盖</li>
+<li>用于修复 Z390 在 DevirtualiseMmio、ProtectCsmRegion 或 ShrinkMemoryMap 上的问题</li>
+<li>非 Z390 主板一般默认不勾选</li>
+</ul>
+</li>
+<li><strong>ProvideCustomSlide</strong><ul>
+<li>在内存不足时提供自定义 KASLR 幻灯片</li>
+<li>此选项时强制 macOS 在可用的 slide 值中使用一个随机的、不产生冲突的 slide 值</li>
+<li>如果 Slide 值存在冲突, 此选项将强制 macOS 执行以下操作，使用一个伪随机值</li>
+<li>只有在遇到 <code>Only N/256 slide values are usable!</code> 时需要</li>
+</ul>
+</li>
+<li><strong>RebuildAppleMemoryMap</strong><ul>
+<li>重建 macOS 兼容的内存映射</li>
+<li>一般在启动 macOS 10.6 及更早版本时可能需要这个选项</li>
+</ul>
+</li>
+<li><strong>SetupVirtualMap</strong><ul>
+<li>在 SetVirtualAddresses 上设置虚拟内存</li>
+<li>开启后会将 SetVirtualAddresses 调用修复为虚拟地址</li>
+<li>通过虚拟内存建立连续性内存供 OC 使用，并映射到分散的物理内存中</li>
+</ul>
+</li>
+<li><strong>SignalAppleOS</strong><ul>
+<li>通过任何操作系统的操作系统信息报告正在加载的 macOS</li>
+<li>将其他操作系统的信息报告给正在加载的 macOS</li>
+<li>用于在 Windows 中为 MacBook 启用 iGPU</li>
+</ul>
+</li>
+<li><strong>SyncRuntimePermissions</strong><ul>
+<li>更新运行时环境的内存权限</li>
+<li>主要用于早期的 macOS 或 Linux&#x2F;Windows</li>
+</ul>
+</li>
+</ul>
+<h2 id="Intel-桌面平台"><a href="#Intel-桌面平台" class="headerlink" title="Intel 桌面平台"></a>Intel 桌面平台</h2><h3 id="Yonah、Conroe、Penryn"><a href="#Yonah、Conroe、Penryn" class="headerlink" title="Yonah、Conroe、Penryn"></a>Yonah、Conroe、Penryn</h3><ul>
+<li>传统引导设置</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Quirk</th>
+<th align="left">Enabled</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AvoidRuntimeDefrag</td>
+<td align="left">No</td>
+<td align="left">Big Sur 可能需要启用此怪癖</td>
+</tr>
+<tr>
+<td align="left">EnableSafeModeSlide</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">EnableWriteUnprotector</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ProvideCustomSlide</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">RebuildAppleMemoryMap</td>
+<td align="left">Yes</td>
+<td align="left">这是引导 OS X 10.4 到 10.6 所必需的</td>
+</tr>
+<tr>
+<td align="left">SetupVirtualMap</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321060833908.png"> </p>
+<ul>
+<li>UEFI 引导设置</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Quirk</th>
+<th align="left">Enabled</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">RebuildAppleMemoryMap</td>
+<td align="left">Yes</td>
+<td align="left">这是引导 OS X 10.4 到 10.6 所必需的</td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321061029025.png"></p>
+<h3 id="Lynnfield、Clarkdale"><a href="#Lynnfield、Clarkdale" class="headerlink" title="Lynnfield、Clarkdale"></a>Lynnfield、Clarkdale</h3><ul>
+<li>传统引导设置</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Quirk</th>
+<th align="left">Enabled</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AvoidRuntimeDefrag</td>
+<td align="left">No</td>
+<td align="left">Big Sur 可能需要启用此怪癖</td>
+</tr>
+<tr>
+<td align="left">EnableSafeModeSlide</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">EnableWriteUnprotector</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ProvideCustomSlide</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">RebuildAppleMemoryMap</td>
+<td align="left">Yes</td>
+<td align="left">这是引导 OS X 10.4 到 10.6 所必需的</td>
+</tr>
+<tr>
+<td align="left">SetupVirtualMap</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321062291214.png"> </p>
+<ul>
+<li>UEFI 引导设置</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Quirk</th>
+<th align="left">Enabled</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">RebuildAppleMemoryMap</td>
+<td align="left">Yes</td>
+<td align="left">这是引导 OS X 10.4 到 10.6 所必需的</td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321062412103.png"> </p>
+<h3 id="Sandy-Bridge、Ivy-Bridge、Haswell、Broadwell、Skylake、Kaby-Lake"><a href="#Sandy-Bridge、Ivy-Bridge、Haswell、Broadwell、Skylake、Kaby-Lake" class="headerlink" title="Sandy Bridge、Ivy Bridge、Haswell、Broadwell、Skylake、Kaby Lake"></a>Sandy Bridge、Ivy Bridge、Haswell、Broadwell、Skylake、Kaby Lake</h3><h4 id="ProperTree"><a href="#ProperTree" class="headerlink" title="ProperTree"></a>ProperTree</h4><p><img data-src="https://image.3001.net/images/20210920/16321063359241.png"> </p>
+<h4 id="OpenCore-Configurator"><a href="#OpenCore-Configurator" class="headerlink" title="OpenCore Configurator"></a>OpenCore Configurator</h4><p><img data-src="https://image.3001.net/images/20210920/16321065437221.png"> </p>
+<h4 id="OCAuxiliaryTools"><a href="#OCAuxiliaryTools" class="headerlink" title="OCAuxiliaryTools"></a>OCAuxiliaryTools</h4><p><img data-src="https://image.3001.net/images/20210920/16321066197929.png">  </p>
+<h3 id="Coffee-Lake、Comet-Lake"><a href="#Coffee-Lake、Comet-Lake" class="headerlink" title="Coffee Lake、Comet Lake"></a>Coffee Lake、Comet Lake</h3><h4 id="ProperTree-1"><a href="#ProperTree-1" class="headerlink" title="ProperTree"></a>ProperTree</h4><p> <img data-src="https://image.3001.net/images/20210920/16321072014472.png">  </p>
+<h4 id="OpenCore-Configurator-1"><a href="#OpenCore-Configurator-1" class="headerlink" title="OpenCore Configurator"></a>OpenCore Configurator</h4><p><img data-src="https://image.3001.net/images/20210920/16321073484350.png"> </p>
+<h4 id="OCAuxiliaryTools-1"><a href="#OCAuxiliaryTools-1" class="headerlink" title="OCAuxiliaryTools"></a>OCAuxiliaryTools</h4><p><img data-src="https://image.3001.net/images/20210920/1632107491904.png">  </p>
+<h2 id="Intel-高端桌面平台"><a href="#Intel-高端桌面平台" class="headerlink" title="Intel 高端桌面平台"></a>Intel 高端桌面平台</h2><h3 id="Nehalem、Westmere"><a href="#Nehalem、Westmere" class="headerlink" title="Nehalem、Westmere"></a>Nehalem、Westmere</h3><ul>
+<li>传统引导设置</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Quirk</th>
+<th align="left">Enabled</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AvoidRuntimeDefrag</td>
+<td align="left">No</td>
+<td align="left">Big Sur 可能需要启用此怪癖</td>
+</tr>
+<tr>
+<td align="left">EnableSafeModeSlide</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">EnableWriteUnprotector</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ProvideCustomSlide</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">RebuildAppleMemoryMap</td>
+<td align="left">Yes</td>
+<td align="left">这是引导 OS X 10.4 到 10.6 所必需的</td>
+</tr>
+<tr>
+<td align="left">SetupVirtualMap</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321077011087.png"> </p>
+<ul>
+<li>UEFI 引导设置</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Quirk</th>
+<th align="left">Enabled</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">RebuildAppleMemoryMap</td>
+<td align="left">Yes</td>
+<td align="left">这是引导 OS X 10.4 到 10.6 所必需的</td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321076965470.png"> </p>
+<h3 id="Sandy、Ivy-Bridge-E、-Haswell-E、Broadwell-E"><a href="#Sandy、Ivy-Bridge-E、-Haswell-E、Broadwell-E" class="headerlink" title="Sandy、Ivy Bridge-E、 Haswell-E、Broadwell-E"></a>Sandy、Ivy Bridge-E、 Haswell-E、Broadwell-E</h3><h4 id="ProperTree-2"><a href="#ProperTree-2" class="headerlink" title="ProperTree"></a>ProperTree</h4><p><img data-src="https://image.3001.net/images/20210920/16321079933176.png"> </p>
+<h4 id="OpenCore-Configurator-2"><a href="#OpenCore-Configurator-2" class="headerlink" title="OpenCore Configurator"></a>OpenCore Configurator</h4><p><img data-src="https://image.3001.net/images/20210920/16321081081008.png"> </p>
+<h4 id="OCAuxiliaryTools-2"><a href="#OCAuxiliaryTools-2" class="headerlink" title="OCAuxiliaryTools"></a>OCAuxiliaryTools</h4><p><img data-src="https://image.3001.net/images/20210920/16321081961087.png">  </p>
+<h3 id="Skylake-X-x2F-W、Cascade-Lake-X-x2F-W"><a href="#Skylake-X-x2F-W、Cascade-Lake-X-x2F-W" class="headerlink" title="Skylake-X&#x2F;W、Cascade Lake-X&#x2F;W"></a>Skylake-X&#x2F;W、Cascade Lake-X&#x2F;W</h3><h4 id="ProperTree-3"><a href="#ProperTree-3" class="headerlink" title="ProperTree"></a>ProperTree</h4><p><img data-src="https://image.3001.net/images/20210920/16321084961598.png"> </p>
+<h4 id="OpenCore-Configurator-3"><a href="#OpenCore-Configurator-3" class="headerlink" title="OpenCore Configurator"></a>OpenCore Configurator</h4><p><img data-src="https://image.3001.net/images/20210920/16321087581689.png"> </p>
+<h4 id="OCAuxiliaryTools-3"><a href="#OCAuxiliaryTools-3" class="headerlink" title="OCAuxiliaryTools"></a>OCAuxiliaryTools</h4><p><img data-src="https://image.3001.net/images/20210920/16321088712875.png">  </p>
+<h2 id="Intel-笔记本平台"><a href="#Intel-笔记本平台" class="headerlink" title="Intel 笔记本平台"></a>Intel 笔记本平台</h2><h3 id="Clarksfield、Arrandale"><a href="#Clarksfield、Arrandale" class="headerlink" title="Clarksfield、Arrandale"></a>Clarksfield、Arrandale</h3><p>Arrandale 的 iGPU 核显仅在 macOS 10.13 之前得到官方支持，大多数 Clarksfield 和 Arrandale 主板不支持 UEFI</p>
+<ul>
+<li>传统引导设置</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Quirk</th>
+<th align="left">Enabled</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">AvoidRuntimeDefrag</td>
+<td align="left">No</td>
+<td align="left">Big Sur 可能需要启用此怪癖</td>
+</tr>
+<tr>
+<td align="left">EnableSafeModeSlide</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">EnableWriteUnprotector</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">ProvideCustomSlide</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">RebuildAppleMemoryMap</td>
+<td align="left">Yes</td>
+<td align="left">这是引导 OS X 10.4 到 10.6 所必需的</td>
+</tr>
+<tr>
+<td align="left">SetupVirtualMap</td>
+<td align="left">No</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321176223321.png"> </p>
+<ul>
+<li>UEFI 引导设置</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">Quirk</th>
+<th align="left">Enabled</th>
+<th align="left">Comment</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">RebuildAppleMemoryMap</td>
+<td align="left">Yes</td>
+<td align="left">这是引导 OS X 10.4 到 10.6 所必需的</td>
+</tr>
+</tbody></table>
+<p><img data-src="https://image.3001.net/images/20210920/16321176509578.png"> </p>
+<h3 id="Sandy-Bridge、Ivy-Bridge、Haswell、Broadwell、Skylake、Kaby-Lake-1"><a href="#Sandy-Bridge、Ivy-Bridge、Haswell、Broadwell、Skylake、Kaby-Lake-1" class="headerlink" title="Sandy Bridge、Ivy Bridge、Haswell、Broadwell、Skylake、Kaby Lake"></a>Sandy Bridge、Ivy Bridge、Haswell、Broadwell、Skylake、Kaby Lake</h3><p>Sandy Bridge 的 iGPU 仅在 macOS 10.13 之前得到官方支持、大多数 Sandy 主板不支持 UEFI</p>
+<h4 id="ProperTree-4"><a href="#ProperTree-4" class="headerlink" title="ProperTree"></a>ProperTree</h4><p><img data-src="https://image.3001.net/images/20210920/16321182024920.png"> </p>
+<h4 id="OpenCore-Configurator-4"><a href="#OpenCore-Configurator-4" class="headerlink" title="OpenCore Configurator"></a>OpenCore Configurator</h4><p><img data-src="https://image.3001.net/images/20210920/16321189842144.png">  </p>
+<h4 id="OCAuxiliaryTools-4"><a href="#OCAuxiliaryTools-4" class="headerlink" title="OCAuxiliaryTools"></a>OCAuxiliaryTools</h4><p><img data-src="https://image.3001.net/images/20210920/16321283519219.png">  </p>
+<h3 id="Coffee-Lake、Whiskey-Lake"><a href="#Coffee-Lake、Whiskey-Lake" class="headerlink" title="Coffee Lake、Whiskey Lake"></a>Coffee Lake、Whiskey Lake</h3><h4 id="ProperTree-5"><a href="#ProperTree-5" class="headerlink" title="ProperTree"></a>ProperTree</h4><p><img data-src="https://image.3001.net/images/20210920/16321191449334.png">  </p>
+<h4 id="OpenCore-Configurator-5"><a href="#OpenCore-Configurator-5" class="headerlink" title="OpenCore Configurator"></a>OpenCore Configurator</h4><p><img data-src="https://image.3001.net/images/20210920/16321193784801.png">  </p>
+<h4 id="OCAuxiliaryTools-5"><a href="#OCAuxiliaryTools-5" class="headerlink" title="OCAuxiliaryTools"></a>OCAuxiliaryTools</h4><p><img data-src="https://image.3001.net/images/20210920/16321284307534.png">  </p>
+<h3 id="Coffee-Lake-Plus、Comet-Lake"><a href="#Coffee-Lake-Plus、Comet-Lake" class="headerlink" title="Coffee Lake Plus、Comet Lake"></a>Coffee Lake Plus、Comet Lake</h3><h4 id="ProperTree-6"><a href="#ProperTree-6" class="headerlink" title="ProperTree"></a>ProperTree</h4><p><img data-src="https://image.3001.net/images/20210920/163211961676.png">  </p>
+<h4 id="OpenCore-Configurator-6"><a href="#OpenCore-Configurator-6" class="headerlink" title="OpenCore Configurator"></a>OpenCore Configurator</h4><p><img data-src="https://image.3001.net/images/20210920/16321197029614.png">  </p>
+<h4 id="OCAuxiliaryTools-6"><a href="#OCAuxiliaryTools-6" class="headerlink" title="OCAuxiliaryTools"></a>OCAuxiliaryTools</h4><p><img data-src="https://image.3001.net/images/20210920/16321285705966.png">  </p>
+<h3 id="Icelake"><a href="#Icelake" class="headerlink" title="Icelake"></a>Icelake</h3><h4 id="ProperTree-7"><a href="#ProperTree-7" class="headerlink" title="ProperTree"></a>ProperTree</h4><p><img data-src="https://image.3001.net/images/20210920/16321199497990.png"> </p>
+<h4 id="OpenCore-Configurator-7"><a href="#OpenCore-Configurator-7" class="headerlink" title="OpenCore Configurator"></a>OpenCore Configurator</h4><p><img data-src="https://image.3001.net/images/20210920/1632120116520.png">  </p>
+<h4 id="OCAuxiliaryTools-7"><a href="#OCAuxiliaryTools-7" class="headerlink" title="OCAuxiliaryTools"></a>OCAuxiliaryTools</h4><p><img data-src="https://image.3001.net/images/20210920/16321286464942.png">  </p>
+<h2 id="AMD-桌面平台"><a href="#AMD-桌面平台" class="headerlink" title="AMD 桌面平台"></a>AMD 桌面平台</h2><h3 id="Bulldozer-15h-、Jaguar-16h"><a href="#Bulldozer-15h-、Jaguar-16h" class="headerlink" title="Bulldozer(15h)、Jaguar(16h)"></a>Bulldozer(15h)、Jaguar(16h)</h3><h4 id="ProperTree-8"><a href="#ProperTree-8" class="headerlink" title="ProperTree"></a>ProperTree</h4><p><img data-src="https://image.3001.net/images/20210920/16321089756195.png"> </p>
+<h4 id="OpenCore-Configurator-8"><a href="#OpenCore-Configurator-8" class="headerlink" title="OpenCore Configurator"></a>OpenCore Configurator</h4><p><img data-src="https://image.3001.net/images/20210920/16321092206693.png">  </p>
+<h4 id="OCAuxiliaryTools-8"><a href="#OCAuxiliaryTools-8" class="headerlink" title="OCAuxiliaryTools"></a>OCAuxiliaryTools</h4><p><img data-src="https://image.3001.net/images/20210920/16321093162671.png">  </p>
+<h3 id="Ryzen、Threadripper-17h-and-19h"><a href="#Ryzen、Threadripper-17h-and-19h" class="headerlink" title="Ryzen、Threadripper(17h and 19h)"></a>Ryzen、Threadripper(17h and 19h)</h3><h4 id="ProperTree-9"><a href="#ProperTree-9" class="headerlink" title="ProperTree"></a>ProperTree</h4><p><img data-src="https://image.3001.net/images/20210920/16321094175471.png"> </p>
+<ul>
+<li><strong>DevirtualiseMmio</strong> <ul>
+<li>注意 TRx40 需要这个标志</li>
+</ul>
+</li>
+<li><strong>SetupVirtualMap</strong><ul>
+<li>注意 B550、A520 和 TRx40 板应禁用此功能。</li>
+<li>较新的 X570 BIOS 版本也需要禁用此功能</li>
+<li>2020 年末 BIOS 更新的 X470 和 B450 也需要禁用此功能</li>
+</ul>
+</li>
+</ul>
+<h4 id="OpenCore-Configurator-9"><a href="#OpenCore-Configurator-9" class="headerlink" title="OpenCore Configurator"></a>OpenCore Configurator</h4><p><img data-src="https://image.3001.net/images/20210920/16321095427594.png">  </p>
+<h4 id="OCAuxiliaryTools-9"><a href="#OCAuxiliaryTools-9" class="headerlink" title="OCAuxiliaryTools"></a>OCAuxiliaryTools</h4><p><img data-src="https://image.3001.net/images/20210920/16321097311625.png">  </p>
+
+      <div class="tags">
+          <a href="/tags/%E9%85%8D%E7%BD%AE%E6%96%87%E7%AB%A0/" rel="tag"><i class="ic i-tag"></i> 配置文章</a>
+      </div>
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">Edited on</span>
+    <time title="Modified: 2022-12-08 03:34:30" itemprop="dateModified" datetime="2022-12-08T03:34:30+08:00">2022-12-08</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> Donate</button>
+  <p>Give me a cup of [coffee]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechatpay.png" alt="七七 WeChat Pay">
+        <p>WeChat Pay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="七七 Alipay">
+        <p>Alipay</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/paypal.png" alt="七七 PayPal">
+        <p>PayPal</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>Post author:  </strong>七七 <i class="ic i-at"><em>@</em></i>黑苹果教程
+  </li>
+  <li class="link">
+    <strong>Post link: </strong>
+    <a href="http://example.com/2022/12/08/oc-2/" title="opencore 初步配置 Three">http://example.com/2022/12/08/oc-2/</a>
+  </li>
+  <li class="license">
+    <strong>Copyright Notice:  </strong>All articles in this blog are licensed under <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> unless stating additionally.
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/12/08/opencore/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclip4jbpj20zk0m87cv.jpg" title="opencore 初步配置 One">
+  <span class="type">Previous Post</span>
+  <span class="category"><i class="ic i-flag"></i> OpenCore</span>
+  <h3>opencore 初步配置 One</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+      
+
+  <a href="/2022/12/08/oc-1/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph47e9vtj20zk0m8x6l.jpg" title="opencore 初步配置 Two">
+  <span class="type">Next Post</span>
+  <span class="category"><i class="ic i-flag"></i> OpenCore</span>
+  <h3>opencore 初步配置 Two</h3>
+  </a>
+
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="Contents">
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Intel-%E6%A1%8C%E9%9D%A2%E5%B9%B3%E5%8F%B0"><span class="toc-number">1.</span> <span class="toc-text">Intel 桌面平台</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Yonah%E3%80%81Conroe%E3%80%81Penryn"><span class="toc-number">1.1.</span> <span class="toc-text">Yonah、Conroe、Penryn</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Lynnfield%E3%80%81Clarkdale"><span class="toc-number">1.2.</span> <span class="toc-text">Lynnfield、Clarkdale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sandy-Bridge%E3%80%81Ivy-Bridge%E3%80%81Haswell%E3%80%81Broadwell%E3%80%81Skylake%E3%80%81Kaby-Lake"><span class="toc-number">1.3.</span> <span class="toc-text">Sandy Bridge、Ivy Bridge、Haswell、Broadwell、Skylake、Kaby Lake</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ProperTree"><span class="toc-number">1.3.1.</span> <span class="toc-text">ProperTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenCore-Configurator"><span class="toc-number">1.3.2.</span> <span class="toc-text">OpenCore Configurator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OCAuxiliaryTools"><span class="toc-number">1.3.3.</span> <span class="toc-text">OCAuxiliaryTools</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Coffee-Lake%E3%80%81Comet-Lake"><span class="toc-number">1.4.</span> <span class="toc-text">Coffee Lake、Comet Lake</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ProperTree-1"><span class="toc-number">1.4.1.</span> <span class="toc-text">ProperTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenCore-Configurator-1"><span class="toc-number">1.4.2.</span> <span class="toc-text">OpenCore Configurator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OCAuxiliaryTools-1"><span class="toc-number">1.4.3.</span> <span class="toc-text">OCAuxiliaryTools</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intel-%E9%AB%98%E7%AB%AF%E6%A1%8C%E9%9D%A2%E5%B9%B3%E5%8F%B0"><span class="toc-number">2.</span> <span class="toc-text">Intel 高端桌面平台</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Nehalem%E3%80%81Westmere"><span class="toc-number">2.1.</span> <span class="toc-text">Nehalem、Westmere</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sandy%E3%80%81Ivy-Bridge-E%E3%80%81-Haswell-E%E3%80%81Broadwell-E"><span class="toc-number">2.2.</span> <span class="toc-text">Sandy、Ivy Bridge-E、 Haswell-E、Broadwell-E</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ProperTree-2"><span class="toc-number">2.2.1.</span> <span class="toc-text">ProperTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenCore-Configurator-2"><span class="toc-number">2.2.2.</span> <span class="toc-text">OpenCore Configurator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OCAuxiliaryTools-2"><span class="toc-number">2.2.3.</span> <span class="toc-text">OCAuxiliaryTools</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Skylake-X-x2F-W%E3%80%81Cascade-Lake-X-x2F-W"><span class="toc-number">2.3.</span> <span class="toc-text">Skylake-X&#x2F;W、Cascade Lake-X&#x2F;W</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ProperTree-3"><span class="toc-number">2.3.1.</span> <span class="toc-text">ProperTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenCore-Configurator-3"><span class="toc-number">2.3.2.</span> <span class="toc-text">OpenCore Configurator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OCAuxiliaryTools-3"><span class="toc-number">2.3.3.</span> <span class="toc-text">OCAuxiliaryTools</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Intel-%E7%AC%94%E8%AE%B0%E6%9C%AC%E5%B9%B3%E5%8F%B0"><span class="toc-number">3.</span> <span class="toc-text">Intel 笔记本平台</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Clarksfield%E3%80%81Arrandale"><span class="toc-number">3.1.</span> <span class="toc-text">Clarksfield、Arrandale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sandy-Bridge%E3%80%81Ivy-Bridge%E3%80%81Haswell%E3%80%81Broadwell%E3%80%81Skylake%E3%80%81Kaby-Lake-1"><span class="toc-number">3.2.</span> <span class="toc-text">Sandy Bridge、Ivy Bridge、Haswell、Broadwell、Skylake、Kaby Lake</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ProperTree-4"><span class="toc-number">3.2.1.</span> <span class="toc-text">ProperTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenCore-Configurator-4"><span class="toc-number">3.2.2.</span> <span class="toc-text">OpenCore Configurator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OCAuxiliaryTools-4"><span class="toc-number">3.2.3.</span> <span class="toc-text">OCAuxiliaryTools</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Coffee-Lake%E3%80%81Whiskey-Lake"><span class="toc-number">3.3.</span> <span class="toc-text">Coffee Lake、Whiskey Lake</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ProperTree-5"><span class="toc-number">3.3.1.</span> <span class="toc-text">ProperTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenCore-Configurator-5"><span class="toc-number">3.3.2.</span> <span class="toc-text">OpenCore Configurator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OCAuxiliaryTools-5"><span class="toc-number">3.3.3.</span> <span class="toc-text">OCAuxiliaryTools</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Coffee-Lake-Plus%E3%80%81Comet-Lake"><span class="toc-number">3.4.</span> <span class="toc-text">Coffee Lake Plus、Comet Lake</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ProperTree-6"><span class="toc-number">3.4.1.</span> <span class="toc-text">ProperTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenCore-Configurator-6"><span class="toc-number">3.4.2.</span> <span class="toc-text">OpenCore Configurator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OCAuxiliaryTools-6"><span class="toc-number">3.4.3.</span> <span class="toc-text">OCAuxiliaryTools</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Icelake"><span class="toc-number">3.5.</span> <span class="toc-text">Icelake</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ProperTree-7"><span class="toc-number">3.5.1.</span> <span class="toc-text">ProperTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenCore-Configurator-7"><span class="toc-number">3.5.2.</span> <span class="toc-text">OpenCore Configurator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OCAuxiliaryTools-7"><span class="toc-number">3.5.3.</span> <span class="toc-text">OCAuxiliaryTools</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AMD-%E6%A1%8C%E9%9D%A2%E5%B9%B3%E5%8F%B0"><span class="toc-number">4.</span> <span class="toc-text">AMD 桌面平台</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Bulldozer-15h-%E3%80%81Jaguar-16h"><span class="toc-number">4.1.</span> <span class="toc-text">Bulldozer(15h)、Jaguar(16h)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ProperTree-8"><span class="toc-number">4.1.1.</span> <span class="toc-text">ProperTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenCore-Configurator-8"><span class="toc-number">4.1.2.</span> <span class="toc-text">OpenCore Configurator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OCAuxiliaryTools-8"><span class="toc-number">4.1.3.</span> <span class="toc-text">OCAuxiliaryTools</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ryzen%E3%80%81Threadripper-17h-and-19h"><span class="toc-number">4.2.</span> <span class="toc-text">Ryzen、Threadripper(17h and 19h)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#ProperTree-9"><span class="toc-number">4.2.1.</span> <span class="toc-text">ProperTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OpenCore-Configurator-9"><span class="toc-number">4.2.2.</span> <span class="toc-text">OpenCore Configurator</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#OCAuxiliaryTools-9"><span class="toc-number">4.2.3.</span> <span class="toc-text">OCAuxiliaryTools</span></a></li></ol></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="Related">
+        <ul>
+          <li><a href="/2022/12/08/oc-1/" rel="bookmark" title="opencore 初步配置 Two">opencore 初步配置 Two</a></li><li class="active"><a href="/2022/12/08/oc-2/" rel="bookmark" title="opencore 初步配置 Three">opencore 初步配置 Three</a></li><li><a href="/2022/12/08/opencore/" rel="bookmark" title="opencore 初步配置 One">opencore 初步配置 One</a></li><li><a href="/2022/12/08/oc-3/" rel="bookmark" title="opencore 初步配置 Four">opencore 初步配置 Four</a></li>
+        </ul>
+      </div>
+      <div class="overview panel" data-title="Overview">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="七七"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">七七</p>
+  <div class="description" itemprop="description">持续补充的OpenCore教程，基于Guihub</div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">5</span>
+        <span class="name">posts</span>
+      </a>
+    </div>
+    <div class="item categories">
+      <a href="/categories/">
+        <span class="count">1</span>
+        <span class="name">categories</span>
+      </a>
+    </div>
+    <div class="item tags">
+      <a href="/tags/">
+        <span class="count">1</span>
+        <span class="name">tags</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>Home</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+        <a href="/2022/12/08/opencore/" rel="prev" title="Previous Post"><i class="ic i-chevron-left"></i></a>
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+        <a href="/2022/12/08/oc-1/" rel="next" title="Next Post"><i class="ic i-chevron-right"></i></a>
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>Random Posts</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/12/08/ventura-HD4600%E9%A9%B1%E5%8A%A8%E8%A1%A5%E4%B8%81/" title="ventura-HD4600驱动补丁">ventura-HD4600驱动补丁</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OpenCore/" title="In OpenCore">OpenCore</a>
+</div>
+
+    <span><a href="/2022/12/08/oc-3/" title="opencore 初步配置 Four">opencore 初步配置 Four</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OpenCore/" title="In OpenCore">OpenCore</a>
+</div>
+
+    <span><a href="/2022/12/08/oc-2/" title="opencore 初步配置 Three">opencore 初步配置 Three</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OpenCore/" title="In OpenCore">OpenCore</a>
+</div>
+
+    <span><a href="/2022/12/08/oc-1/" title="opencore 初步配置 Two">opencore 初步配置 Two</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+<a href="/categories/OpenCore/" title="In OpenCore">OpenCore</a>
+</div>
+
+    <span><a href="/2022/12/08/opencore/" title="opencore 初步配置 One">opencore 初步配置 One</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>Recent Comments</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">七七 @ Hackintosh</span>
+  </div>
+  <div class="powered-by">
+    Powered by <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/12/08/oc-2/',
+    favicon: {
+      show: "（●´3｀●）Goooood",
+      hide: "(´Д｀)Booooom"
+    },
+    search : {
+      placeholder: "Search for Posts",
+      empty: "We didn't find any results for the search: ${query}",
+      stats: "${hits} results found in ${time} ms"
+    },
+    valine: true,fancybox: true,
+    copyright: 'Copied to clipboard successfully! <br> All articles in this blog are licensed under <i class="ic i-creative-commons"></i>BY-NC-SA.',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
